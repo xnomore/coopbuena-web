@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/trabajadores.css">
+  <link rel="stylesheet" href="css/register-user.css">
+  <title>Registrar usuario</title>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="trabajadores.html">Panel de control</a></li>
+          <li><a href="">Gestión de cuentas</a></li>
+          <li><a href="solicitudPrestamos.html">solicitud de préstamos</a></li>
+          <li><a href="">Reportes</a></li>
+          <li><a href="registerUser.html" class="active">Nuevo cliente</a></li>
+          <li><a href="">Procesar pago</a></li>
+          <li><a href="">Aplicar a prestamo</a></li>
+          <li><a href="">Algo 4</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="section-title">Nuevo cliente</h1>
+      <form action="">
+        <div class="row">
+          <div class="entry">
+            <label for="inp-name">Nombres<span class="danger-color">*</span></label>
+            <input type="text" name="inp-name" id="inp-name" required>
+          </div>
+
+          <div class="entry">
+            <label for="inp-lastname">Apellidos<span class="danger-color">*</span></label>
+            <input type="text" name="inp-lastname" id="inp-lastname" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="entry">
+            <label for="inp-email">Correo electrónico<span class="danger-color">*</span></label>
+            <input type="text" name="inp-email" id="inp-email" required>
+          </div>
+
+          <div class="entry">
+            <label for="inp-identification-card">Cédula de identificación<span class="danger-color">*</span></label>
+            <input type="text" name="inp-identification-card" id="inp-identification-card" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="entry">
+            <label for="inp-cell-phone">Celular personal<span class="danger-color">*</span></label>
+            <input type="text" name="inp-cell-phone" id="inp-cell-phone" required>
+          </div>
+
+          <div class="entry">
+            <label for="inp-tell-phone">Teléfono local<span class="danger-color">*</span></label>
+            <input type="text" name="inp-tell-phone" id="inp-tell-phone" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="entry">
+            <label for="inp-address">Dirección<span class="danger-color">*</span></label>
+            <input type="text" name="inp-cell-phone" id="inp-cell-phone" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="entry">
+            <label for="inp-birthdate">Fecha de nacimiento<span class="danger-color">*</span></label>
+            <input type="date" name="inp-birthdate" id="inp-birthdate" required>
+          </div>
+
+          <div class="entry">
+            <label for="inp-gender">Genero<span class="danger-color">*</span></label>
+            <select name="inp-gender" id="inp-gender" required>
+              <option value="select">Selecionar</option>
+              <option value="select">Femenino</option>
+              <option value="select">Masculino</option>
+            </select>
+          </div>
+
+          <div class="entry">
+            <label for="inp-civil-status">Estado civil<span class="danger-color">*</span></label>
+            <select name="inp-civil-status" id="inp-civil-status" required>
+              <option value="select">Selecionar</option>
+              <option value="select">Solter@</option>
+              <option value="select">Casad@</option>
+              <option value="select">Compromiso</option>
+              <option value="select">Unión libre</option>
+              <option value="select">Divorciad@</option>
+              <option value="select">Viud@</option>
+            </select>
+          </div>
+
+          <div class="entry">
+            <label for="inp-ocupation">Ocupación<span class="danger-color">*</span></label>
+            <select name="inp-ocupation" id="inp-ocupation" required>
+              <option value="select">Selecionar</option>
+              <option value="select">Emplead@</option>
+              <option value="select">Empresari@</option>
+              <option value="select">Estudiante</option>
+              </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <button type="submit" class="btn send border-radius-1">Enviar</button>
+          <button type="reset" class="btn cancel border-radius-1">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+</body>
+
+</html>

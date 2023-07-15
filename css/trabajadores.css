@@ -1,0 +1,88 @@
+header .container {
+  max-width: var(--max-width-container);
+  margin: auto;
+}
+
+header ul {
+  /*border: 1px solid red;*/
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--primary-color);
+  padding: 5px 0;
+}
+
+header ul li {
+  /*border: 1px solid blue;*/
+  flex-grow: 1;
+}
+
+header ul li a {
+  /*border: 1px solid green;*/
+  /*border: 1px solid var(--primary-color-hover);*/
+  border: 1px solid var(--white) !important;
+  display: block;
+  /*flex-grow: 1;*/
+  padding: 10px 20px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: var(--white);
+}
+
+header ul li a:hover:not(.active) {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+.system-information {
+  border: 1px solid blue;
+  max-width: var(--max-width-container);
+  margin: auto;
+  padding: 10px;
+  font-size: var(--text-size);
+}
+
+.system-information .container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.system-information .time,
+.system-information .date {
+  border: 1px solid green;
+}
+
+.worker-information {
+  border: 1px solid red;
+  max-width: var(--max-width-container);
+  margin: 15px auto 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.loan-applications {
+  border: 1px solid red;
+  max-width: var(--max-width-container);
+  margin: 15px auto 0;
+  padding: 10px;
+}
+
+.loan-applications table {
+  border: 1px solid var(--dark-1);
+  border-collapse: collapse;
+}
+
+.table-header {
+  text-align: center;
+}
+
+.loan-applications table td {
+  padding: 10px;
+  border: 1px solid var(--dark-1);
+}
+

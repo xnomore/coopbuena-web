@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/trabajadores.css">
+  <link rel="stylesheet" href="css/solicitar-prestamo.css">
+  <title>Gestionar prestamos</title>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="trabajadores.html">Panel de control</a></li>
+          <li><a href="">Solicitud de cuentas</a></li>
+          <li><a href="solicitudPrestamos.html" class="active">Solicitud de préstamos</a></li>
+          <li><a href="">Reportes</a></li>
+          <li><a href="registerUser.html">Nuevo cliente</a></li>
+          <li><a href="">Procesar pago</a></li>
+          <li><a href="">Aplicar a prestamo</a></li>
+          <li><a href="">Algo 4</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="section-title">Solicitud de prestamo</h1>
+      <form action="">
+        <div class="row">
+          <div class="entry full">
+            <label for="inp-customer">Cliente<span class="danger-color">*</span></label>
+            <input type="text" name="inp-customer" id="inp-customer" list="customers" required>
+            <datalist id="customers">
+              <option value="Manzana">
+              <option value="Banana">
+              <option value="Naranja">
+              <option value="Pera">
+              <option value="Piña">
+            </datalist>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="entry">
+            <label for="inp-email">Correo electrónico<span class="danger-color">*</span></label>
+            <input type="text" name="inp-email" id="inp-email" required>
+          </div>
+
+          <div class="entry">
+            <label for="inp-identification-card">Cédula de identificación<span class="danger-color">*</span></label>
+            <input type="text" name="inp-identification-card" id="inp-identification-card" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="entry">
+            <label for="inp-cell-phone">Celular personal<span class="danger-color">*</span></label>
+            <input type="text" name="inp-cell-phone" id="inp-cell-phone" required>
+          </div>
+
+          <div class="entry">
+            <label for="inp-tell-phone">Teléfono local<span class="danger-color">*</span></label>
+            <input type="text" name="inp-tell-phone" id="inp-tell-phone" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="entry">
+            <label for="inp-requested-amount">Monto solicitado<span class="danger-color">*</span></label>
+            <input type="text" name="inp-requested-amount" id="inp-requested-amount" required>
+          </div>
+
+          <div class="entry">
+            <label for="inp-payment-method">Método de pago<span class="danger-color">*</span></label>
+            <select name="inp-payment method" id="inp-payment method" required>
+              <option value="Seleccionar">Seleccioar</option>
+              <option value="Seleccionar">Deposito / Transferencia</option>
+              <option value="Seleccionar">Efectivo</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="entry">
+            <label for="inp-application-date">Fecha solicitud<span class="danger-color">*</span></label>
+            <input type="date" name="inp-application-date" id="inp-application-date" required readonly>
+          </div>
+
+          <div class="entry">
+            <label for="inp-first-pay">Primer pago<span class="danger-color">*</span></label>
+            <input type="date" name="inp-first-pay" id="inp-first-pay" required readonly>
+          </div>
+
+          <div class="entry">
+            <label for="inp-pay-date">Fecha de apgo<span class="danger-color">*</span></label>
+            <select name="inp-pay-date" id="inp-pay-date" required>
+              <option value="select">Seleccionar</option>
+            </select>
+          </div>
+
+          <div class="entry">
+            <label for="inp-ocupation">Días de retraso permitido<span class="danger-color">*</span></label>
+            <select name="inp-ocupation" id="inp-ocupation" required>
+              <option value="0">0</option>
+              <option value="select">3</option>
+              <option value="select">5</option>
+              <option value="select">7</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <button type="submit" class="btn send border-radius-1">Enviar</button>
+          <button type="reset" class="btn cancel border-radius-1">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    // Establecer fecha de la solicitud
+
+    var date = new Date();
+
+    var year = date.getFullYear();
+    var month = ('0' + (date.getMonth() + 1)).slice(-2);
+    var day = ('0' + date.getDate()).slice(-2);
+    var application_date = year + '-' + month + '-' + day;
+
+    document.getElementById("inp-application-date").value = application_date;
+    
+
+    // Establecer fecha de primer pago
+    
+    var first_pay_month = ('0' + (date.getMonth() + 2)).slice(-2);
+    var first_pay_date = year + '-' + first_pay_month + '-' + day;
+
+    const inp_first_pay = document.querySelector("#inp-first-pay");
+    const inp_pay_date = document.querySelector("#inp-pay-date");
+    
+    inp_first_pay.value = first_pay_date;
+
+    inp_pay_date.addEventListener("change", () => {
+      var first_pay_date = year + '-' + first_pay_month + '-' + inp_pay_date.value;
+      inp_first_pay.value = first_pay_date;
+    });
+
+
+    // Rellenar el select con los dias para la fecha de pago
+
+    //const inp_pay_date = document.querySelector("#inp-pay-date");
+    for (let i = 1; i <= 30; i++) {
+      let new_option = `<option value="${i}">${i}</option>`;
+      inp_pay_date.innerHTML += new_option;
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+------------------------- Del proyecto -------------------------
+
+Plantilla base de la web landing page:
+https://i.pinimg.com/originals/40/bc/a0/40bca0630f710f0e5d98bb1c3d03314d.jpg
+
+Fuente de letras:
+https://fonts.google.com/specimen/Ubuntu?preview.text=COOPBUENA&preview.text_type=custom&query=ubun
+
+scrollrevealjs:
+Funciones:
+https://scrollrevealjs.org/api/easing.html
+Defaults:
+https://scrollrevealjs.org/api/defaults.html
+
+------------------------- Fotos -------------------------
+
+header-bg.JPG:
+https://www.pexels.com/es-es/foto/oficina-mujer-mesa-reunion-7446599/
+
+tarjetas-1.png:
+https://www.google.com/search?q=icono%20de%20prestamo%20bancario&tbm=isch&hl=es&tbs=ic:specific%2Cisc:green&sa=X&ved=0CAEQpwVqFwoTCPCiq9Oz8_8CFQAAAAAdAAAAABAD&biw=1519&bih=764#imgrc=hVN2l-K1cmJiEM
+
+ahorros-1.png:
+https://www.google.com/search?q=icono%20de%20ahorro&tbm=isch&hl=es&tbs=ic:specific%2Cisc:green&sa=X&ved=0CAcQ2J8EahcKEwiwjN_WtPP_AhUAAAAAHQAAAAAQAw&biw=1519&bih=764#imgrc=vrRYnYmuYPkOfM
+
+prestamos-1.png:
+https://www.google.com/search?q=icono%20de%20prestamos&tbm=isch&hl=es&tbs=ic:specific%2Cisc:green&sa=X&ved=0CAcQ2J8EahcKEwjoh_iytfP_AhUAAAAAHQAAAAAQAw&biw=1519&bih=764#imgrc=8gDpO1m7QxcAlM
+
+transacciones-1.png:
+https://www.google.com/search?q=icono%20de%20transferencia%20bancaria&tbm=isch&hl=es&tbs=ic:specific%2Cisc:green&sa=X&ved=0CAcQ2J8EahcKEwj48K_utvP_AhUAAAAAHQAAAAAQAw&biw=1519&bih=764#imgrc=Z1gJqxN7AGZ87M&imgdii=ep0aSUXTHrk6vM

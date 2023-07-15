@@ -1,0 +1,67 @@
+main .container {
+  /*border: 1px solid red;*/
+  max-width: var(--max-width-container);
+  margin: 15px auto 0;
+  padding: 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+form {
+  /*border: 1px solid green;*/
+  max-width: var(--max-width-content);
+  margin: auto;
+}
+
+form .row {
+  /*border: 1px solid blue;*/
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+form .row .entry {
+  /*flex-grow: 1;*/
+  width: 50%;
+}
+
+form .row .entry.full {
+  width: 100%;
+}
+
+form .row .entry label {
+  /*border: 1px solid red;*/
+  display: block;
+  margin-bottom: 5px;
+  width: fit-content;
+}
+
+form .row .entry input,
+form .row .entry select {
+  width: 100%;
+  padding: 10px;
+  font-size: var(--text-size);
+}
+
+form .row button {
+  display: block;
+  padding: 10px 30px;
+  color: var(--white);
+  font-size: var(--text-size);
+}
+
+form .row button.send {
+  background-color: var(--primary-color);
+}
+form .row button.send:hover {
+  background-color: var(--primary-color-hover);
+}
+form .row button.cancel {
+  background-color: var(--danger);
+}
+form .row button.cancel:hover {
+  background-color: var(--danger-hover);
+}

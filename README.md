@@ -7,4 +7,4 @@ Ver la parte de trabajadores:
 https://richardson-05.github.io/coopbuena-web/trabajadores
 
 Ver la parte de los clientes (usuarios):
-## NO DISPONIBLE POR EL MOMENTO
+<b>NO DISPONIBLE POR EL MOMENTO<b>

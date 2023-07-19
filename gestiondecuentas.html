@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/trabajadores.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Gestión de Cuentas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #00A197;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f2f2f2;
+        }
+
+        .tabla1 {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .tabla1 th, .tabla1 td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .tabla1 th {
+            background-color: #00A197;
+            color: white;
+        }
+
+        .tabla1 tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .tabla1 tr:hover {
+            background-color: #ddd;
+        }
+
+        h2 {
+            color: #00A197;
+            margin-bottom: 10px;
+        }
+        .config-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .config-item h3 {
+            margin-top: 0;
+            color: #00A197;
+        }
+
+        .config-item label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .config-item input[type="text"],
+        .config-item select {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        .config-item button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #00A197;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .config-item button:hover {
+            background-color: #00A197;
+        }
+
+        .informe-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .informe-container .informe {
+            flex: 1;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .informe-container .informe h3 {
+            margin-top: 0;
+            color: #00A197;
+        }
+
+        form {
+            margin-top: 10px;
+        }
+
+        form label, form select, form input[type="text"], form input[type="submit"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #00A197;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #008080;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #00A197;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .button-container button:hover {
+            background-color: #00A197;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="">Panel de control</a></li>
+                    <li><a href="gestiondecuentas.html" class="active">Gestión de Cuenta</a></li>
+                    <li><a href="solicitudPrestamos.html">Solicitud de préstamos</a></li>
+                    <li><a href="">Reportes</a></li>
+                    <li><a href="registerUser.html">Nuevo cliente</a></li>
+                    <li><a href="">Procesar pago</a></li>
+                    <li><a href="">Aplicar a préstamo</a></li>
+                    <li><a href="">Algo 4</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="cuentas">
+            <h2>Lista de Cuentas de Clientes</h2>
+            <table class="tabla1">
+                <tr>
+                    <th>Número de Cuenta</th>
+                    <th>Titular</th>
+                    <th>Tipo de Cuenta</th>
+                    <th>Saldo</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+                <tr>
+                    <td>123456789</td>
+                    <td>Nombre del Titular</td>
+                    <td>Cuenta de Ahorros</td>
+                    <td>RD$5,000.00</td>
+                    <td>Activa</td>
+                    <td class="button-container">
+                        <button onclick="verDetalles(123456789)">Ver Detalles</button>
+                        <button onclick="editarCuenta(123456789)">Editar</button>
+                        <button onclick="desactivarCuenta(123456789)">Desactivar</button>
+                    </td>
+                </tr>
+            </table>
+
+            <h2>Agregar Nueva Cuenta</h2>
+            <form>
+                <label for="numeroCuenta">Número de Cuenta:</label>
+                <input type="text" id="numeroCuenta" name="numeroCuenta" required>
+
+                <label for="titular">Titular:</label>
+                <input type="text" id="titular" name="titular" required>
+
+                <label for="tipoCuenta">Tipo de Cuenta:</label>
+                <select id="tipoCuenta" name="tipoCuenta">
+                    <option value="ahorros">Cuenta de Ahorros</option>
+                    <option value="corriente">Cuenta Corriente</option>
+                    <!-- Agregar más opciones de tipos de cuenta -->
+                </select>
+
+                <label for="saldo">Saldo:</label>
+                <input type="text" id="saldo" name="saldo" required>
+
+                <label for="estado">Estado:</label>
+                <select id="estado" name="estado">
+                    <option value="activa">Activa</option>
+                    <option value="inactiva">Inactiva</option>
+                </select>
+
+                <input type="submit" value="Agregar Cuenta">
+            </form>
+
+            <h2>Historial de Transacciones - Número de Cuenta: 123456789</h2>
+            <table class="tabla1">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Tipo de Transacción</th>
+                    <th>Monto</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>2023-07-15</td>
+                    <td>Depósito</td>
+                    <td>RD$1,000.00</td>
+                    <td>Depósito Inicial</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <main>
+        <section id="prestamos">
+            <h2>Lista de Solicitudes de Préstamos Pendientes</h2>
+            <table class="tabla1">
+                <tr>
+                    <th>Número de Solicitud</th>
+                    <th>Monto</th>
+                    <th>Plazo (meses)</th>
+                    <th>Tasa de Interés</th>
+                    <th>Cliente</th>
+                    <th>Acciones</th>
+                </tr>
+                <tr>
+                    <td>12345</td>
+                    <td>RD$50,000.00</td>
+                    <td>12</td>
+                    <td>10%</td>
+                    <td>Nombre del Cliente</td>
+                    <td class="button-container">
+                        <button onclick="aprobarPrestamo(12345)">Aprobar</button>
+                        <button onclick="rechazarPrestamo(12345)">Rechazar</button>
+                    </td>
+                </tr>
+                <!-- Agregar más solicitudes de préstamos pendientes -->
+            </table>
+
+            <h2>Estado de Préstamos Otorgados</h2>
+            <table class="tabla1">
+                <tr>
+                    <th>Número de Préstamo</th>
+                    <th>Monto</th>
+                    <th>Plazo (meses)</th>
+                    <th>Tasa de Interés</th>
+                    <th>Cliente</th>
+                    <th>Estado</th>
+                </tr>
+                <tr>
+                    <td>98765</td>
+                    <td>RD$100,000.00</td>
+                    <td>24</td>
+                    <td>12%</td>
+                    <td>Nombre del Cliente</td>
+                    <td>Aprobado</td>
+                </tr>
+                <!-- Agregar más préstamos otorgados -->
+            </table>
+
+            <h2>Generar Informes de Préstamos</h2>
+            <div class="button-container">
+                <button onclick="generarInforme('pendientes')">Préstamos Pendientes</button>
+                <button onclick="generarInforme('aprobados')">Préstamos Aprobados</button>
+                <button onclick="generarInforme('vencidos')">Pagos Vencidos</button>
+                <!-- Agregar más opciones de informes -->
+            </div>
+        </section>
+    </main>
+    <main>
+        <section id="transacciones">
+            <h2>Registro de Transacciones</h2>
+            <table class="tabla1">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Tipo de Transacción</th>
+                    <th>Monto</th>
+                    <th>Número de Cuenta</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>2023-07-15</td>
+                    <td>Depósito</td>
+                    <td>RD$1,000.00</td>
+                    <td>123456789</td>
+                    <td>Depósito Inicial</td>
+                </tr>
+                <!-- Agregar más transacciones -->
+            </table>
+
+            <div class="button-container">
+                <button onclick="filtrarTransacciones('deposito')">Depósitos</button>
+                <button onclick="filtrarTransacciones('retiro')">Retiros</button>
+                <button onclick="filtrarTransacciones('transferencia')">Transferencias</button>
+                <!-- Agregar más opciones de filtrado -->
+            </div>
+
+            <h2>Detalles de Transacción</h2>
+            <table class="tabla1">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Tipo de Transacción</th>
+                    <th>Monto</th>
+                    <th>Receptor/Remitente</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>2023-07-15</td>
+                    <td>Depósito</td>
+                    <td>RD$1,000.00</td>
+                    <td>Nombre del Cliente</td>
+                    <td>Depósito Inicial</td>
+                </tr>
+                <!-- Agregar más detalles de transacciones -->
+            </table>
+
+            <h2>Transacciones Resaltadas (Inusuales o de Alto Valor)</h2>
+            <table class="tabla1">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Tipo de Transacción</th>
+                    <th>Monto</th>
+                    <th>Número de Cuenta</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr class="resaltado">
+                    <td>2023-07-16</td>
+                    <td>Transferencia</td>
+                    <td>RD$50,000.00</td>
+                    <td>987654321</td>
+                    <td>Transferencia Entrante</td>
+                </tr>
+                <!-- Agregar más transacciones resaltadas -->
+            </table>
+        </section>
+    </main>
+    <main>
+        
+        <section id="estadisticas">
+            <h2>Estadísticas Financieras</h2>
+
+            <div class="grafico-container">
+                <canvas id="graficoBarras" width="400" height="200"></canvas>
+                <script>
+                    // Datos del gráfico
+                    const datos = {
+                        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+                        datasets: [{
+                            label: 'Ingresos',
+                            data: [1500, 2200, 1800, 2500, 2000],
+                            backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    };
+            
+                    // Configuración del gráfico
+                    const opciones = {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    };
+            
+                    // Crear el gráfico
+                    const ctx = document.getElementById('graficoBarras').getContext('2d');
+                    const graficoBarras = new Chart(ctx, {
+                        type: 'bar',
+                        data: datos,
+                        options: opciones
+                    });
+                </script>
+                <canvas id="ingresosChart"></canvas>
+                <canvas id="gastosChart"></canvas>
+            </div>
+
+            <div class="informe-container">
+               <!-- Agregar informes financieros aquí -->
+                <div class="informe">
+                    <h3>Balance de Cuentas</h3>
+                    <p>Fecha: 2023-07-31</p>
+                    <p>Total de Activos: RD$1,000,000.00</p>
+                    <p>Total de Pasivos: RD$300,000.00</p>
+                    <p>Patrimonio Neto: RD$700,000.00</p>
+                </div>
+                <div class="informe">
+                    <h3>Préstamos Otorgados</h3>
+                    <p>Fecha: 2023-07-31</p>
+                    <p>Total Préstamos: RD$500,000.00</p>
+                    <p>Préstamos Activos: RD$400,000.00</p>
+                    <p>Préstamos Pagados: RD$100,000.00</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <main>
+        <section id="configuracion">
+            <h2>Configuración del Sistema</h2>
+
+            <div class="config-item">
+                <h3>Seguridad del Sistema</h3>
+                <label for="politicasContrasenas">Configuración de Políticas de Contraseñas:</label>
+                <input type="text" id="politicasContrasenas" name="politicasContrasenas">
+
+                <label for="permisosAcceso">Permisos de Acceso:</label>
+                <input type="text" id="permisosAcceso" name="permisosAcceso">
+            </div>
+
+            <div class="config-item">
+                <h3>Notificaciones y Alertas</h3>
+                <label for="notificacionesPersonal">Notificaciones para el Personal:</label>
+                <input type="text" id="notificacionesPersonal" name="notificacionesPersonal">
+            </div>
+
+            <div class="config-item">
+                <h3>Herramientas de Respaldo y Restauración de Datos</h3>
+                <button onclick="respaldarDatos()">Respaldar Datos</button>
+                <button onclick="restaurarDatos()">Restaurar Datos</button>
+            </div>
+
+            <div class="config-item">
+                <h3>Roles y Permisos del Personal</h3>
+                <label for="configurarRoles">Configurar Roles:</label>
+                <select id="configurarRoles" name="configurarRoles">
+                    <option value="administrador">Administrador</option>
+                    <option value="gerente">Gerente</option>
+                    <option value="cajero">Cajero</option>
+                </select>
+
+                <label for="definirResponsabilidades">Definir Responsabilidades:</label>
+                <input type="text" id="definirResponsabilidades" name="definirResponsabilidades">
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -6,6 +6,9 @@ https://richardson-05.github.io/coopbuena-web
 Ver la parte de trabajadores:
 https://richardson-05.github.io/coopbuena-web/trabajadores
 
+Ver tareas a realizar:
+https://github.com/users/richardson-05/projects/2/views/1
+
 Ver la parte de los clientes (usuarios):
 <b>NO DISPONIBLE POR EL MOMENTO<b>
 

@@ -72,7 +72,7 @@
         <div class="row">
           <div class="entry">
             <label for="inp-address">Dirección<span class="danger-color">*</span></label>
-            <input type="text" name="inp-cell-phone" id="inp-cell-phone" required>
+            <input type="text" name="inp-address" id="inp-address" required>
           </div>
         </div>
 
@@ -85,33 +85,49 @@
           <div class="entry">
             <label for="inp-gender">Genero<span class="danger-color">*</span></label>
             <select name="inp-gender" id="inp-gender" required>
-              <option value="select">Selecionar</option>
-              <option value="select">Femenino</option>
-              <option value="select">Masculino</option>
+              <option value="">Selecionar</option>
+              <option value="Femenino">Femenino</option>
+              <option value="Masculino">Masculino</option>
             </select>
           </div>
 
           <div class="entry">
             <label for="inp-civil-status">Estado civil<span class="danger-color">*</span></label>
             <select name="inp-civil-status" id="inp-civil-status" required>
-              <option value="select">Selecionar</option>
-              <option value="select">Solter@</option>
-              <option value="select">Casad@</option>
-              <option value="select">Compromiso</option>
-              <option value="select">Unión libre</option>
-              <option value="select">Divorciad@</option>
-              <option value="select">Viud@</option>
+              <option value="">Selecionar</option>
+              <option value="Solter@">Solter@</option>
+              <option value="Casad@">Casad@</option>
+              <option value="Compromiso">Compromiso</option>
+              <option value="Unión libre">Unión libre</option>
+              <option value="Divorciad@">Divorciad@</option>
+              <option value="Viud@">Viud@</option>
             </select>
           </div>
 
           <div class="entry">
             <label for="inp-ocupation">Ocupación<span class="danger-color">*</span></label>
             <select name="inp-ocupation" id="inp-ocupation" required>
-              <option value="select">Selecionar</option>
-              <option value="select">Emplead@</option>
-              <option value="select">Empresari@</option>
-              <option value="select">Estudiante</option>
-              </select>
+              <option value="">Selecionar</option>
+              <option value="Emplead@">Emplead@</option>
+              <option value="Empresari@">Empresari@</option>
+              <option value="Estudiante">Estudiante</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="entry">
+            <label for="inp-user">Usuario<span class="danger-color">*</span></label>
+            <input type="text" name="inp-user" id="inp-user" required>
+          </div>
+
+          <div class="entry">
+            <label for="inp-password">Contraseña<span class="danger-color">*</span></label>
+            <input type="password" name="inp-password" id="inp-password" required>
+
+            <div class="show-password">
+              <button class="btn border-radius-1" id="btn-show-password">Ver contraseña</button>
+            </div>
           </div>
         </div>
 
@@ -122,6 +138,8 @@
       </form>
     </div>
   </main>
+
+  <script type="module" src="js/users-main.js"></script>
 
 </body>
 

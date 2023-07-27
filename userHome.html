@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de control</title>
+</head>
+<body>
+  
+  <main>
+    <div class="container">
+      <h1>Panel de usuarios</h1>
+      <button class="btn-logut">Cerrar sesión</button>
+    </div>
+  </main>
+
+  <script>
+    if (!localStorage.login) {
+      location.href = "login.html";
+    }
+
+    const btnLogut = document.querySelector(".btn-logut");
+
+    btnLogut.addEventListener("click", () => {
+      localStorage.removeItem("login");
+      location.href = "login.html";
+    });
+  </script>
+  
+</body>
+</html>

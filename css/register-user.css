@@ -60,3 +60,15 @@ form .row button.cancel {
 form .row button.cancel:hover {
   background-color: var(--danger-hover);
 }
+
+.show-password {
+  /*border: 1px solid red;*/
+  padding-top: 5px;
+}
+
+.show-password button {
+  background-color: var(--secondary-color);
+  border: 0;
+  font-size: 15px !important;
+  padding: 5px 10px !important;
+}
